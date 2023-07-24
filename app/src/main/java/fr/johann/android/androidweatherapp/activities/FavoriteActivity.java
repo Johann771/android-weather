@@ -45,8 +45,8 @@ public class FavoriteActivity extends AppCompatActivity {
             }
         });
         Log.d("TAG", "FavoriteActivity: onCreate()");
-        //mRecyclerView = findViewById(R.id.my_recycler_view);
-        //binding.mInclude.mTextViewMessage.setText(intent.getStringExtra("key_message"));
+
+//        binding.mInclude.myRecyclerView.setText(intent.getStringExtra("key_message"));
 
         mCities = new ArrayList<>();
         City city1 = new City("Montréal", "Légères pluies", "22°C", R.drawable.weather_rainy_grey);
@@ -61,7 +61,7 @@ public class FavoriteActivity extends AppCompatActivity {
         binding.mInclude.myRecyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new FavoriteAdapter(this, mCities);
-        //mRecyclerView.setAdapter(mAdapter);
+        binding.mInclude.myRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
