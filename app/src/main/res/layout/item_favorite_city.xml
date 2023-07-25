@@ -9,7 +9,7 @@
             android:layout_height="73dp"
             android:src="@drawable/weather_clear_night_grey"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" android:layout_marginEnd="60dp">
+            android:layout_marginTop="8dp" android:layout_marginEnd="28dp">
     </ImageView>
     <TextView
             android:id="@+id/textViewItemDescription"
@@ -32,8 +32,10 @@
     <TextView
             android:id="@+id/textViewItemTemperature"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="36dp"
-            tools:layout_editor_absoluteX="0dp">
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="32dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="144dp">
 
     </TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

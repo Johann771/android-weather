@@ -37,10 +37,10 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         City city = mCities.get(position);
         holder.mTextViewCityName.setText(city.mName);
-        holder.mTextViewCityName.setText(city.mName);
-        holder.mTextViewCityName.setText(city.mName);
-
+        holder.mTextViewCityTemp.setText(city.mTemperature);
+        holder.mTextViewCityWeather.setText(city.mDescription);
     }
+
 
     /**
      * Returns the total number of items in the data set held by the adapter.
@@ -63,6 +63,14 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
             mTextViewCityName = (TextView) view.findViewById(R.id.textViewItemCityName);
             mTextViewCityTemp = (TextView) view.findViewById(R.id.textViewItemDescription);
             mTextViewCityWeather = (TextView) view.findViewById(R.id.textViewItemTemperature);
+            view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    mCities.remove(getBindingAdapterPosition());
+                    notifyItemChanged(getBindingAdapterPosition());
+                    return false;
+                }
+            });
         }
     }
 }

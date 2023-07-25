@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        Toast.makeText(this, "mTextViewCityName.getText()", Toast.LENGTH_SHORT).show();
+
         Log.d("TAG", "MainActivity: onCreate()");
     }
     public void onButtonClick(View view) {
