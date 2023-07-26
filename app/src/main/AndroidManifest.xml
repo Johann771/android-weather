@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
             android:allowBackup="true"
@@ -18,11 +19,6 @@
                 android:name=".activities.FavoriteActivity"
                 android:exported="false"
                 android:label="@string/title_activity_favorite"
-                android:theme="@style/Theme.AndroidWeatherApp.NoActionBar"/>
-        <activity
-                android:name=".ScrollingActivity"
-                android:exported="false"
-                android:label="@string/title_activity_scrolling"
                 android:theme="@style/Theme.AndroidWeatherApp.NoActionBar"/>
         <activity
                 android:name=".activities.MainActivity"
