@@ -4,5 +4,8 @@
     <string name="city_desc">Ensoleillé</string>
     <string name="city_temp">24°C</string>
     <string name="favorites">Favoris</string>
+    <string name="place_not_found">ressource non trouvé\n</string>
+    <string name="api_error">erreur de l\'api\n</string>
+    <string name="no_connexion">Pas de connexion\n</string>
 
 </resources>
