@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -20,6 +21,7 @@ import fr.johann.android.androidweatherapp.R;
 import fr.johann.android.androidweatherapp.adapters.FavoriteAdapter;
 import fr.johann.android.androidweatherapp.databinding.ActivityFavoriteBinding;
 import fr.johann.android.androidweatherapp.models.City;
+import fr.johann.android.androidweatherapp.utils.Util;
 
 import java.util.ArrayList;
 
@@ -32,6 +34,7 @@ public class FavoriteActivity extends AppCompatActivity {
     //private RecyclerView mRecyclerView;
     private FavoriteAdapter mAdapter;
     private Context mContext = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,7 +124,7 @@ public class FavoriteActivity extends AppCompatActivity {
         mCities.add(city20);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         binding.mInclude.myRecyclerView.setLayoutManager(layoutManager);
-
+        mCities = Util.initFavoriteCities(this);
         mAdapter = new FavoriteAdapter(this, mCities);
         binding.mInclude.myRecyclerView.setAdapter(mAdapter);
     }
@@ -159,4 +162,5 @@ public class FavoriteActivity extends AppCompatActivity {
         super.onStop();
         Log.d("TAG", "FavoriteActivity: onStop()");
     }
+
 }

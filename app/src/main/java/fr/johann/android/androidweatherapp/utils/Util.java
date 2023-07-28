@@ -5,7 +5,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import fr.johann.android.androidweatherapp.R;
+import fr.johann.android.androidweatherapp.models.City;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -143,6 +145,13 @@ public class Util {
             return s.substring(0, 1).toUpperCase() + s.substring(1);
         }
         return "";
+    }
+    public static ArrayList<City> initFavoriteCities(Context context){
+        ArrayList<City> cities = new ArrayList<>();
+        return cities;
+    }
+    public static void saveFavortieCities(ArrayList<City> cities){
+
     }
 
 

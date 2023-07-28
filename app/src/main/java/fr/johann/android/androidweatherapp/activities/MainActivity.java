@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.lifecycle.MutableLiveData;
 import fr.johann.android.androidweatherapp.R;
 import fr.johann.android.androidweatherapp.databinding.ActivityMainBinding;
 import fr.johann.android.androidweatherapp.models.City;
@@ -22,12 +23,11 @@ import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity {
-    private TextView mTextViewCityName;
-    private Button mButton2;
-    private EditText mEditTextInput;
+
     private ActivityMainBinding binding;
+
     private Context mContext;
-    private OkHttpClient mOkHttpClient;
+    private City mCity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +35,13 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         mContext = this;
-        mTextViewCityName = (TextView) findViewById(R.id.text_view_city_name);
-        mOkHttpClient = new OkHttpClient();
 
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         if (networkInfo != null && networkInfo.isConnected()) {
             binding.linearLayoutBackground.setVisibility(View.VISIBLE);
-            callApiWithCoords(47.390026, 0.68889);
+            callApiWithCoords(39,0.6);
         } else {
             binding.linearLayoutBackground.setVisibility(View.INVISIBLE);
         }
@@ -127,11 +125,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUi(String stringJson) {
         try {
-            City city = new City(stringJson);
-            mTextViewCityName.setText(city.mName);
-            //mte.setText(city.mDescription);
-            //mTextViewCityName.setText(city.mName);
-            //mTextViewCityName.setText(city.mName);
+            mCity = new City(stringJson);
+            binding.setCity(mCity);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

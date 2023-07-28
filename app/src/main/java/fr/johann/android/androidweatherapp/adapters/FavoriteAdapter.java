@@ -68,7 +68,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
                 public boolean onLongClick(View view) {
                     mCities.remove(getBindingAdapterPosition());
                     notifyItemRemoved(getBindingAdapterPosition());
-                    return false;
+                    return true;
                 }
             });
         }
